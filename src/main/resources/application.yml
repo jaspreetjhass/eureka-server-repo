@@ -1,8 +1,8 @@
 spring:
   application:
-    name: eureka-naming-server
+    name: eureka-server
 server:
-  port: ${EUREKA_PORT}
+  port: ${EUREKA_SERVER_PORT}
 eureka:
   client:
     fetch-registry: false
