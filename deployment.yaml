@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: eureka-server-pod
+      labels:
+        name: eureka-server
+        tier: frontend
+    spec:
+      containers:
+        - name: eureka-server
+          image: jaspreetjhass91/eureka-server
+          ports:
+            - containerPort: 8761
+          env:
+            - name: EUREKA_SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: EUREKA_SERVER_PORT
+  selector:
+    matchLabels:
+      tier: frontend
