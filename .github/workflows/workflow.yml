@@ -31,7 +31,8 @@ jobs:
       run: docker build . -f Dockerfile -t jaspreetjhass91/eureka-server
     - name: Docker push
       run: docker push jaspreetjhass91/eureka-server
-        
+    - name: Try k8s
+      run: kubectl get svc
         
         
         
